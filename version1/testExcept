@@ -1,0 +1,13 @@
+#! /bin/sh
+handshakeFile='handshake-01.cap'
+BSSIDFile='targetBSSID.txt'
+ESSIDFile='targetESSID.txt'
+remote_host='peter@157.211.23.169'
+remote_crack_dir='/home/peter/crackPipe'
+remote_password='PUT PASSWORD HERE'
+expect -c"
+	spawn scp "$handshakeFile" "$BSSIDFile" "$ESSIDFile" "$remote_host":"$remote_crack_dir"
+	expect \"password:\"
+	send --  \"$remote_password\r \"
+	expect eof
+"

