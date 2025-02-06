@@ -1,0 +1,6 @@
+#! /bin/sh
+
+variable=$1
+savedFile=$2
+
+echo "$variable" > "$savedFile"

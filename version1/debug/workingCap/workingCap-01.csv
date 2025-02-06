@@ -1,0 +1,16 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+00:04:20:F4:5D:7E, 2023-11-13 14:42:10, 2023-11-13 14:42:10, -88,        1, (not associated) ,
+D8:FB:5E:B7:A2:02, 2023-11-13 14:41:59, 2023-11-13 14:42:04, -78,        4, (not associated) ,Alan’s iPhone
+54:2A:1B:D9:BD:BB, 2023-11-13 14:41:54, 2023-11-13 14:42:11, -76,       43, (not associated) ,Sonos_nvPNS0TLFYCmgCLfrUVVLRKvuz
+54:2A:1B:D9:BD:BA, 2023-11-13 14:41:54, 2023-11-13 14:42:10, -76,       28, (not associated) ,Telstra837766
+00:0E:58:24:63:70, 2023-11-13 14:41:53, 2023-11-13 14:42:09, -74,       45, (not associated) ,Rockwall2
+1A:BC:75:D7:9A:F8, 2023-11-13 14:42:04, 2023-11-13 14:42:04, -72,        2, (not associated) ,
+00:0E:58:24:65:58, 2023-11-13 14:41:53, 2023-11-13 14:42:11, -72,       56, (not associated) ,Rockwall2
+94:9F:3E:B5:35:1C, 2023-11-13 14:41:56, 2023-11-13 14:42:11, -68,       40, (not associated) ,Rockwall2
+74:C6:3B:00:5C:9E, 2023-11-13 14:41:54, 2023-11-13 14:42:05, -44,     1314, 42:5E:F6:EB:B5:4F,Look88
+
+:05, -44,     1314, 42:5E:F6:EB:B5:4F,Look88
+
