@@ -38,7 +38,7 @@ class Display():
 # Main controller class.
 class Controller:
     def __init__(self):
-        self.key = None
+        self.key = "EMPTY"
         # Add Display
         self.display = Display()
         # Add ScreenStates
