@@ -6,10 +6,12 @@ repeat_seconds=4
 cd fileBin/
 while true
 do
-    for file in $(ls)
+    for file in $(ls); do
         if [ $file = "targetBSSID.txt" ]; then
-            aircrack-ng -b targetBSSID.txt handshake-01.cap > output_key.txt
+            aircrack-ng -w ../Top204Thousand-WPA-probable-v2.txt -b $(cat targetBSSID.txt)\
+             handshake-01.cap > output_key.txt
             rm -f targetBSSID.txt targetESSID.txt handshake-01.cap
         fi
+    done
     sleep $repeat_seconds
 done
