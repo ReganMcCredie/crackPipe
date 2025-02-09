@@ -9,21 +9,15 @@ remote_crack_dir='/home/peter/Projects/crackPipe'
 remote_password='PUT PASSWORD HERE'
 error_no_network="ssh: connect to host $IPaddress port 22: No route to host"
 expect -c"
-	spawn scp "$handshakeFile" "$BSSIDFile" "$ESSIDFile" "$remote_host":"$remote_crack_dir"
-	expect \"password:\" {
-		send -- \"$remote_password\r \"
-	}
-	expect \"$error_no_network\" {
-		exit 1
-	}
-	exit 0
-{
-"
-expect_return=$?
+	spawn scp $handshakeFile $BSSIDFile $ESSIDFile $remote_host:$remote_crack_dir
+	expect {
+	
+		\"password:\" { send -- \"$remote_password\r \" }
 
-if [ $expect_return -eq 0 ]
-then
+		\"$error_no_network\" { exit 1 }
+
+	}
 	exit 0
-else
-	exit 1
-fi
+"
+# Exit with return code of expect
+exit $?
