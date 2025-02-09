@@ -49,6 +49,7 @@ class Controller:
         self.screenStates['CapturingHandshake'] = CapturingHandshake_State(self)
         self.screenStates['SentAndWaiting'] = SentAndWaiting_State(self)
         self.screenStates['CaptureFailed'] = CaptureFailed_State(self)
+        self.screenStates['SuccessfulCrack'] = Complete_State(self)
         self.screenStates['Complete'] = Complete_State(self)
         # Set initial screenState to WelcomeScreen.
         self.currentState = self.screenStates['WelcomeScreen']
