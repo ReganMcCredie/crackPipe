@@ -3,10 +3,11 @@
 IPaddress='PUT IP ADDRESS HERE'
 remote_file='output_key.txt'
 remote_host="peter@$IPaddress"
-remote_crack_dir='/home/peter/crackPipe'
+remote_crack_dir='/home/peter/Projects/crackPipe/fileBin'
 local_dir='../outputs'
 remote_password='PUT PASSWORD HERE'
-no_file_error='scp: /home/peter/crackPipe/output_key.txt: No such file or directory'
+no_file_error="scp: /home/peter/Projects/crackPipe/fileBin/\
+output_key.txt: No such file or directory"
 success=''
 
 expect -c"

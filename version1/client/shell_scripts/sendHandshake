@@ -5,7 +5,7 @@ handshakeFile='handshake-01.cap'
 BSSIDFile='targetBSSID.txt'
 ESSIDFile='targetESSID.txt'
 remote_host="peter@$IPaddress"
-remote_crack_dir='/home/peter/Projects/crackPipe'
+remote_crack_dir='/home/peter/Projects/crackPipe/fileBin'
 remote_password='PUT PASSWORD HERE'
 error_no_network="ssh: connect to host $IPaddress port 22: No route to host"
 expect -c"
