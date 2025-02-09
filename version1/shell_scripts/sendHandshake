@@ -16,7 +16,6 @@ expect -c"
 	expect \"$error_no_network\" {
 		exit 1
 	}
-	expect eof
 	exit 0
 {
 "

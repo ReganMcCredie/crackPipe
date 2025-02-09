@@ -72,6 +72,9 @@ class WelcomeScreen_State(State):
         # Joy stick RIGHT
         if not button_R.value or not button_C.value:
             self.controller.changeState('SearchingNetworks')
+        # DEBUG for testing with precaptured handshake
+        if not button_U.value or not button_C.value:
+            self.controller.changeState('SentAndWaiting')
 
 
 
@@ -208,7 +211,6 @@ class SelectNetwork_State(State):
 class CapturingHandshake_State(State):
     targetNetwork = None
    
-    # Abstract Method
     def makeNewDisplayGroup(self):
         newGroup = displayio.Group()
         text = label.Label(terminalio.FONT, text="Capturing WPA\n  Handshake", color=0xFFFFFF, x=16, y=HEIGHT // 2-1)
@@ -221,7 +223,6 @@ class CapturingHandshake_State(State):
         # Set the new display group.
         self.setDisplay(newGroup)
     
-    # Abstract Method
     def spawnProcess(self):
 
         #DEBUG
@@ -289,7 +290,7 @@ class SentAndWaiting_State(State):
         # commencing for each.
         while(True):
             returnCode = processes.sendHandshake()
-            sleep(7)
+            sleep(12)
             if returnCode == 0:
                 break
         while(True):
