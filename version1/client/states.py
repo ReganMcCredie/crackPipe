@@ -298,8 +298,13 @@ class SentAndWaiting_State(State):
             sleep(7)
             if returnCode == 0:
                 break
-
-        self.controller.changeState('Complete')
+        result, key = proccesses.checkCrackResult()
+        if (result == false):
+            self.controller.changeState('Complete')
+        else:
+            # Save the key to the controller
+            self.controller.setKey(key)
+            self.controller.changeState('SuccessfulCrack')
 
 
 
@@ -312,6 +317,28 @@ class Complete_State(State):
     def makeNewDisplayGroup(self):
         newGroup = displayio.Group()
         text = label.Label(terminalio.FONT, text="Complete!", color=0xFFFFFF, x=28, y=25)
+        newGroup.append(text)
+        # Set the new display group.
+        self.setDisplay(newGroup)
+    
+    # Abstract Method
+    def Controls(self):
+        pass
+
+    # Abstract Method
+    def spawnProcess(self):
+        pass
+
+class SuccessfulCrack_State(State):
+    def Display(self):
+        return group
+    def Controls(self):
+        pass
+    # Abstract Method
+    def makeNewDisplayGroup(self):
+        key = self.controller.getKey()
+        newGroup = displayio.Group()
+        text = label.Label(terminalio.FONT, key, color=0xFFFFFF, x=28, y=25)
         newGroup.append(text)
         # Set the new display group.
         self.setDisplay(newGroup)

@@ -38,6 +38,7 @@ class Display():
 # Main controller class.
 class Controller:
     def __init__(self):
+        self.key = None
         # Add Display
         self.display = Display()
         # Add ScreenStates
@@ -52,6 +53,7 @@ class Controller:
         # Set initial screenState to WelcomeScreen.
         self.currentState = self.screenStates['WelcomeScreen']
         self.renderNewDisplay(self.currentState.getDisplay())
+        
 
     def renderNewDisplay(self, newDisplay):
             self.display.loadDisplay(newDisplay)
@@ -74,6 +76,12 @@ class Controller:
 
     def setTargetNetwork(self, targetNetwork):
         self.screenStates['CapturingHandshake'].setTargetNetwork(targetNetwork)
+
+    def setKey(self, key):
+        self.key = key
+
+    def getKey(self):
+        return self.key
 
 
 # Perpetual loop, enabling UI.
