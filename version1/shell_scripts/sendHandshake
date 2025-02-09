@@ -12,7 +12,9 @@ expect -c"
 	spawn scp $handshakeFile $BSSIDFile $ESSIDFile $remote_host:$remote_crack_dir
 	expect {
 	
-		\"password:\" { send -- \"$remote_password\r \" }
+		\"password:\" { send -- \"$remote_password\r \" 
+						expect \"targetESSID.txt                                                          100%\" { exit 0 }
+		}
 
 		\"$error_no_network\" { exit 1 }
 
