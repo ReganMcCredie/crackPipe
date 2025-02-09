@@ -19,7 +19,7 @@ expect -c"
 		\"$error_no_network\" { exit 1 }
 
 	}
-	exit 0
+	exit 1
 "
 # Exit with return code of expect
 exit $?

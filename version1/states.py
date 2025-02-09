@@ -290,7 +290,7 @@ class SentAndWaiting_State(State):
         # commencing for each.
         while(True):
             returnCode = processes.sendHandshake()
-            sleep(12)
+            sleep(7)
             if returnCode == 0:
                 break
         while(True):

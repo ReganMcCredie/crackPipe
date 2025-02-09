@@ -68,12 +68,12 @@ def captureHandshake(apMAC, clientMAC, apChannel, apName):
 
 
 def sendHandshake():
-    process = subprocess.Popen(['shell_scripts/sendHandshake'])
+    process = subprocess.run(['shell_scripts/sendHandshake'])
     return process.returncode
 
 
 def receiveKey():
-    process = subprocess.Popen(['shell_scripts/receiveKey'])
+    process = subprocess.run(['shell_scripts/receiveKey'])
     return process.returncode
 
 def moveToFile(variable, savedFile):
