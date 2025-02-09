@@ -286,7 +286,7 @@ class SentAndWaiting_State(State):
     
     # Abstract Method
     def spawnProcess(self):
-        # Call send and receive proccesses, ensure scp is completed before
+        # Call send and receive processes, ensure scp is completed before
         # commencing for each.
         while(True):
             returnCode = processes.sendHandshake()
@@ -298,7 +298,7 @@ class SentAndWaiting_State(State):
             sleep(7)
             if returnCode == 0:
                 break
-        result, key = proccesses.checkCrackResult()
+        result, key = processes.checkCrackResult()
         if (result == false):
             self.controller.changeState('Complete')
         else:
