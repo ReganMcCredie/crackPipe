@@ -67,8 +67,7 @@ def captureHandshake(apMAC, clientMAC, apChannel, apName):
     # Check for capture file every three seconds.
     if checkForCapture():
         return True
-    else:
-        return False
+    return False
 
 
 
