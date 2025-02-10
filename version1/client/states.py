@@ -299,10 +299,6 @@ class SentAndWaiting_State(State):
             if returnCode == 0:
                 break
         result, key = processes.checkCrackResult()
-
-        #DEBUG 
-        print("key: ", key)
-
         if (result == False):
             self.controller.changeState('Complete')
         else:

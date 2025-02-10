@@ -51,7 +51,7 @@ def checkCrackResult():
         content = file.readlines()
         for line in content:
             if re.search('KEY FOUND', line):
-                searchObject = re.search("\[ (.*) \]", line)
+                searchObject = re.search("\[\s(.*)\s\]", line)
                 key =  searchObject.group(1)
                 return True, key
     return False, 'KEY NOT FOUND'
