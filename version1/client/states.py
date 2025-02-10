@@ -317,7 +317,7 @@ class SuccessfulCrack_State(State):
     def makeNewDisplayGroup(self):
         key = self.controller.getKey()
         newGroup = displayio.Group()
-        text = label.Label(terminalio.FONT, text=key, color=0xFFFFFF, x=28, y=25)
+        text = label.Label(terminalio.FONT, text=("KEY FOUND:\n" + key), color=0xFFFFFF, x=5, y=25)
         newGroup.append(text)
         # Set the new display group.
         self.setDisplay(newGroup)
