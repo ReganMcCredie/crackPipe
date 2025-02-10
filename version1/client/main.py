@@ -78,8 +78,8 @@ class Controller:
     def setTargetNetwork(self, targetNetwork):
         self.screenStates['CapturingHandshake'].setTargetNetwork(targetNetwork)
 
-    def setKey(self, key):
-        self.key = key
+    def setKey(self, newKey):
+        self.key = newKey
 
     def getKey(self):
         return self.key
