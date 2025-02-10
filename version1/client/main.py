@@ -63,9 +63,10 @@ class Controller:
         self.currentState.Controls()
 
     def changeState(self, newState):
-        newDisplay = self.screenStates[newState].getDisplay()
-        self.renderNewDisplay(newDisplay)
         self.currentState = self.screenStates[newState]
+        self.currentState.makeNewDisplayGroup()
+        newDisplay = self.currentState.getDisplay()
+        self.renderNewDisplay(newDisplay)
 
         # DEBUG
         print("current state: ", self.currentState)
