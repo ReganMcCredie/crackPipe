@@ -37,13 +37,13 @@ def airmon_thread(apName, apChannel):
     subprocess.Popen(['shell_scripts/capture', apChannel, apName])
 
 def checkForCapture():
-    with open('airodumpOutTail.txt', 'r') as file:
+    with open('outputs/airodumpOutTail.txt', 'r') as file:
         content = file.readlines()
         for line in content:
             if re.search('EAPOL', line) or re.search('handshake', line):
                 # Handshake capture made.
                 return True
-    remove('airodumpOut.txt')
+    remove('outputs/airodumpOut.txt')
     return False
 
 def checkCrackResult():
