@@ -42,6 +42,7 @@ expect -c"
 		}
 		\"*$ \" {
 			send -- \"rm -f $remote_crack_dir/$remote_file\"
+			send -- \"exit\"
 			exit 0
 		}
 	}
