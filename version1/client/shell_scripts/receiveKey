@@ -35,15 +35,15 @@ expect -c"
 	spawn ssh $remote_host
 	expect \"password:\" {
 		send -- \"$remote_password\r\"
-	}
-	expect {
-		\"$error_no_network\" {
-			exit 1
-		}
-		\"*$ \" {
-			send -- \"rm -f $remote_crack_dir/$remote_file\"
-			send -- \"exit\"
-			exit 0
+		expect {
+			\"$error_no_network\" {
+				exit 1
+			}
+			\"*$ \" {
+				send -- \"rm -f $remote_crack_dir/$remote_file\"
+				send -- \"exit\"
+				exit 0
+			}
 		}
 	}
 "
