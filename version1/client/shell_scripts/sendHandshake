@@ -1,7 +1,7 @@
 #! /bin/sh
 
 IPaddress=''
-handshakeFile='handshake-01.cap'
+handshakeFile='outputs/handshake-01.cap'
 BSSIDFile='targetBSSID.txt'
 ESSIDFile='targetESSID.txt'
 remote_host="peter@$IPaddress"

@@ -19,10 +19,10 @@ def getNetworks():
     subprocess.Popen(['shell_scripts/scanner'])
     # Wait for CSV to appear.
     sleep(26)
-    networks = networkParsing.parseCSV('networkScan-01.csv')
+    networks = networkParsing.parseCSV('outputs/networkScan-01.csv')
 
     # Remove files containing scan info.
-    for outputFile in glob('networkScan-*'):
+    for outputFile in glob('outputs/networkScan-*'):
         remove(outputFile)
     return networks
 

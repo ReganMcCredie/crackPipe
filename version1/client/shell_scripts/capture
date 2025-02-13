@@ -1,7 +1,7 @@
 #! /bin/sh
 
-sudo airodump-ng -w handshake -c "$1" --essid "$2" wlan1 > airodumpOut.txt &
+sudo airodump-ng -w handshake -c "$1" --essid "$2" wlan1 > outputs/airodumpOut.txt &
 PID=$!
 sleep 30
 kill -TERM $PID
-tail -n 500 airodumpOut.txt > airodumpOutTail.txt
+tail -n 500 outputs/airodumpOut.txt > outputs/airodumpOutTail.txt
