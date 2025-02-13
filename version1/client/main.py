@@ -50,7 +50,7 @@ class Controller:
         self.screenStates['SentAndWaiting'] = SentAndWaiting_State(self)
         self.screenStates['CaptureFailed'] = CaptureFailed_State(self)
         self.screenStates['SuccessfulCrack'] = SuccessfulCrack_State(self)
-        self.screenStates['Complete'] = Complete_State(self)
+        self.screenStates['FailedCrack'] = FailedCrack_State(self)
         # Set initial screenState to WelcomeScreen.
         self.currentState = self.screenStates['WelcomeScreen']
         self.renderNewDisplay(self.currentState.getDisplay())

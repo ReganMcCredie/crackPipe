@@ -189,7 +189,7 @@ class SelectNetwork_State(State):
             self.makeNewDisplayGroup()
             self.controller.renderNewDisplay(self.getDisplay())
             sleep(0.2)
-        # Joy stick RIGHT
+        # Joy stick RIGHT and CENTER
         if not button_R.value or not button_C.value: 
             self.controller.setTargetNetwork(self.currentNetwork)
             self.controller.changeState('CapturingHandshake')
@@ -300,7 +300,7 @@ class SentAndWaiting_State(State):
                 break
         result, key = processes.checkCrackResult()
         if (result == False):
-            self.controller.changeState('Complete')
+            self.controller.changeState('FailedCrack')
         else:
             # Save the key to the controller
             self.controller.setKey(key)
@@ -331,7 +331,7 @@ class SuccessfulCrack_State(State):
         pass
 
 
-class Complete_State(State):
+class FailedCrack_State(State):
     def Display(self):
         return group
     def Controls(self):
@@ -339,14 +339,16 @@ class Complete_State(State):
     # Abstract Method
     def makeNewDisplayGroup(self):
         newGroup = displayio.Group()
-        text = label.Label(terminalio.FONT, text="Complete!", color=0xFFFFFF, x=28, y=25)
+        text = label.Label(terminalio.FONT, text="KEY NOT FOUND\ninteract to retry", color=0xFFFFFF, x=28, y=25)
         newGroup.append(text)
         # Set the new display group.
         self.setDisplay(newGroup)
     
     # Abstract Method
     def Controls(self):
-        pass
+        # Joy stick RIGHT and CENTER
+        if not button_R.value or not button_C.value: 
+            self.controller.changeState('WelcomeScreen')
 
     # Abstract Method
     def spawnProcess(self):
