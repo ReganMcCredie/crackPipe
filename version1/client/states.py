@@ -48,11 +48,8 @@ class State:
         return bitmap, palette
 
     def buildGroup(self, bitmap, palette, text_area=None, x=0, y=0):
-        # Create a TileGrid
-        #tileGrid = displayio.TileGrid(bitmap, pixel_shader=palette)
-        # Create a Group and add the Tile Grid
+        # Create a Group
         group = displayio.Group(x=x, y=y)
-        #group.append(tileGrid)
         if text_area is not None :
             group.append(text_area)
         return group
@@ -89,14 +86,13 @@ class SearchingNetworks_State(State):
         self.setDisplay(newGroup)
 
     def Controls(self):
-        # Joy stick RIGHT
-        #if not button_R.value: 
-        #    self.controller.changeState('SelectNetwork')
         # Joy stick LEFT
         if not button_L.value: 
             self.controller.changeState('WelcomeScreen')
             
     def spawnProcess(self):
+        # Clear outputs from previous scan
+        processes.clearOutputs()
         networks = processes.getNetworks()
         # Add networks to SelectNetwork_State.
         self.controller.screenStates['SelectNetwork'].addNetworks(networks)
@@ -145,16 +141,10 @@ class SelectNetwork_State(State):
             text_area = label.Label(terminalio.FONT, text=networkInfo, color=textCol, x=10, y=groupHeight//2)
             networkGroup.append(text_area)
             newGroup.append(networkGroup)
-        '''
+
         # DEBUG
-        print("networks")
-        for network in self.networks:
-            print(network.name, network)
-        print("Displayed networks")
-        for network in self.displayedNetworks:
-            print(network.name, network)
-        '''
         print("CURRENT NETWORK:", self.currentNetwork.name, self.currentNetwork.signalStrength)
+
         # Set the new display group.
         self.setDisplay(newGroup)
 

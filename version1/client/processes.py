@@ -82,3 +82,6 @@ def receiveKey():
 
 def moveToFile(variable, savedFile):
     subprocess.Popen(['shell_scripts/moveToFile', variable, savedFile])
+
+def clearOutputs():
+    subprocess.Popen(['shell_scripts/clearOuputs'])
