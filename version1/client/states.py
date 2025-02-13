@@ -244,8 +244,8 @@ class CapturingHandshake_State(State):
         if captureSuccess:
             BSSID = CapturingHandshake_State.targetNetwork.BSSID
             ESSID = CapturingHandshake_State.targetNetwork.name
-            processes.moveToFile(BSSID, 'targetBSSID.txt')
-            processes.moveToFile(ESSID, 'targetESSID.txt')
+            processes.moveToFile(BSSID, 'outputs/targetBSSID.txt')
+            processes.moveToFile(ESSID, 'outputs/targetESSID.txt')
             self.controller.changeState('SentAndWaiting')
         else:
             self.controller.changeState('CaptureFailed')
