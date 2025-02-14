@@ -329,7 +329,7 @@ class FailedCrack_State(State):
     # Abstract Method
     def makeNewDisplayGroup(self):
         newGroup = displayio.Group()
-        text = label.Label(terminalio.FONT, text="KEY NOT FOUND\ninteract to retry", color=0xFFFFFF, x=28, y=25)
+        text = label.Label(terminalio.FONT, text="KEY NOT FOUND\ninteract to retry", color=0xFFFFFF, x=8, y=25)
         newGroup.append(text)
         # Set the new display group.
         self.setDisplay(newGroup)

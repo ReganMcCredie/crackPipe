@@ -1,11 +1,11 @@
 #! /bin/sh
 
-IPaddress='PUT IP HERE'
+IPaddress=''
 remote_file='output_key.txt'
 remote_host="peter@$IPaddress"
 remote_crack_dir='/home/peter/Projects/crackPipe/fileBin'
 local_dir='outputs'
-remote_password='PUT PASSWORD HERE'
+remote_password=''
 error_no_file="scp: /home/peter/Projects/crackPipe/fileBin/\
 output_key.txt: No such file or directory"
 error_no_network="ssh: connect to host $IPaddress port 22: No route to host"
@@ -33,19 +33,21 @@ expect -c"
 # Remove file from remote server
 expect -c"
 	spawn ssh $remote_host
-	expect \"password:\" {
-		send -- \"$remote_password\r\"
-		expect {
-			\"$error_no_network\" {
-				exit 1
-			}
-			\"*$ \" {
-				send -- \"rm -f $remote_crack_dir/$remote_file\"
-				send -- \"exit\"
-				exit 0
+	expect {
+		\"password:\" {
+			send -- \"$remote_password\r\"
+			sleep 4
+			send -- \"rm -f $remote_crack_dir/$remote_file\r\"
+			sleep 2
+			send -- \"exit\r\"
+			exit 0
 			}
 		}
+		\"$error_no_network\" {
+			exit 1
+		}
 	}
+	exit 1
 "
 
 expect_return=$?
